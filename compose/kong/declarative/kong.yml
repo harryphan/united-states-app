@@ -1,0 +1,23 @@
+_format_version: '3.0'
+_transform: true
+
+services:
+  - host: states-service
+    name: states-service
+    port: 8080
+    protocol: http
+    path: /v1
+    routes:
+      - name: states-service-api
+        paths:
+          - /api/states-service
+
+#  - host: congressional-districts
+#    name: congressional-districts
+#    port: 3000
+#    protocol: http
+#    routes:
+#      - name: frontend-route
+#        paths:
+#          - /
+#        strip_path: false
