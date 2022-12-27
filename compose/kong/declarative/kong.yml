@@ -6,18 +6,17 @@ services:
     name: states-service
     port: 8080
     protocol: http
-    path: /v1
+    path: /
     routes:
       - name: states-service-api
         paths:
           - /api/states-service
-
-#  - host: congressional-districts
-#    name: congressional-districts
-#    port: 3000
-#    protocol: http
-#    routes:
-#      - name: frontend-route
-#        paths:
-#          - /
-#        strip_path: false
+  - host: us-map-app
+    name: us-map-app
+    port: 3000
+    protocol: http
+    path: /
+    routes:
+      - name: us-map-app
+        paths:
+          - /

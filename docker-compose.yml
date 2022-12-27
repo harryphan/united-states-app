@@ -34,3 +34,20 @@ services:
       - "8443:8443"
       - "9080:9080"
       - "9081:9081"
+  postgres:
+    container_name: postgres
+    image: postgres:15.1-alpine
+    restart: always
+    networks:
+      - us-network
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: us
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: [ "CMD", "pg_isready", "-U", "postgres" ]
+      interval: 5s
+      timeout: 5s
+      retries: 5
